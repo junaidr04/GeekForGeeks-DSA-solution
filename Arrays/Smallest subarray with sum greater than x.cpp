@@ -4,32 +4,26 @@
 // Time Complexity: O(n) [each element added & removed at most once]
 // Space Complexity: O(1)
 
-class Solution
-{
+class Solution {
 public:
-    int smallestSubWithSum(int x, vector<int> &arr)
-    {
-        if (arr.empty())
-            return 0;
+    int smallestSubWithSum(int x, vector<int>& arr) {
+        if(arr.empty()) 
+        return 0;
         int n = arr.size();
-        int minLen = INT_MAX, sum = 0, s = 0;
-        for (int i = 0; i < n; i++)
+        int sum = 0, s = 0;
+        int ans = 0;
+        for(int i = 0; i < n; i++) 
         {
             sum += arr[i];
-            while (sum > x)
+            while(sum > x) 
             {
-                minLen = min(minLen, i - s + 1);
+                int len = i-s+1;
+                if(ans == 0 || len < ans)
+                    ans = len; 
                 sum -= arr[s];
                 s++;
             }
         }
-        if (minLen == INT_MAX)
-        {
-            return 0;
-        }
-        else
-        {
-            return minLen;
-        }
+        return ans; 
     }
 };
