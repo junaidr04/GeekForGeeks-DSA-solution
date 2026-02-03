@@ -11,19 +11,20 @@ public:
         return 0;
         int n = arr.size();
         int sum = 0, s = 0;
-        int ans = 0;
+        int ans = 0;  //smallest length found so far
         for(int i = 0; i < n; i++) 
         {
             sum += arr[i];
             while(sum > x) 
             {
-                int len = i-s+1;
-                if(ans == 0 || len < ans)
+                int len = i-s+1;  //current window length
+                if(ans == 0 || len < ans)  //update smallest length
                     ans = len; 
-                sum -= arr[s];
-                s++;
+                sum -= arr[s];  //remove left element from sum
+                s++;  //move start index forward
             }
         }
         return ans; 
     }
 };
+
