@@ -46,7 +46,7 @@ public:
     }
 };
 
-// time complexity: O(log(min(n,m))) [Using binary search to find the correct partition in the smaller array]
+// time complexity: O(log(min(n,m)))   or  O(log n) [Using binary search to find the correct partition in the smaller array]
 // space complexity: O(1) [Using constant space to store variables for binary search]
 
 class Solution
@@ -117,4 +117,5 @@ public:
         }
         return 0;
     }
+
 };
